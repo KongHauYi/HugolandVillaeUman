@@ -116,7 +116,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
                     <span className="text-green-400 font-semibold text-sm">Growth</span>
                   </div>
                   <p className="text-white font-bold">{garden.growthCm.toFixed(1)}cm</p>
-                  <p className="text-xs text-gray-300">Max: {garden.maxGrowthCm}cm</p>
+                  <p className="text-xs text-gray-300">Growing infinitely!</p>
                 </div>
 
                 <div className="bg-blue-900/30 p-3 rounded-lg text-center">
