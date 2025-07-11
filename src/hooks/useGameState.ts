@@ -1573,6 +1573,45 @@ const useGameState = () => {
     }
   }, [gameState?.inventory?.currentWeapon, gameState?.inventory?.currentArmor, gameState?.inventory?.equippedRelics, isLoading]);
 
+  // Garden growth system - update every 10 seconds
+  useEffect(() => {
+    if (!gameState || !gameState.gardenOfGrowth.isPlanted) return;
+
+    const interval = setInterval(() => {
+      setGameState(prev => {
+        if (!prev || !prev.gardenOfGrowth.isPlanted) return prev;
+
+        const now = new Date().getTime();
+        const lastUpdate = prev.gardenOfGrowth.lastWatered ? new Date(prev.gardenOfGrowth.lastWatered).getTime() : now;
+        const timeDiff = (now - lastUpdate) / (1000 * 60 * 60); // hours
+        
+        let newWaterHours = Math.max(0, prev.gardenOfGrowth.waterHoursRemaining - timeDiff);
+        let newGrowthCm = prev.gardenOfGrowth.growthCm;
+        
+        // Only grow if there's water remaining (grow 5x faster than before)
+        if (newWaterHours > 0) {
+          // Faster growth: 0.5cm per hour instead of 0.1cm per hour
+          newGrowthCm += 0.5 * timeDiff;
+        }
+        
+        const newTotalGrowthBonus = newGrowthCm * 5; // Each cm = 5% bonus
+
+        return {
+          ...prev,
+          gardenOfGrowth: {
+            ...prev.gardenOfGrowth,
+            growthCm: newGrowthCm, // Remove max limit for infinite growth
+            totalGrowthBonus: newTotalGrowthBonus,
+            waterHoursRemaining: newWaterHours,
+            lastWatered: new Date()
+          }
+        };
+      });
+    }, 10000); // Update every 10 seconds
+
+    return () => clearInterval(interval);
+  }, [gameState?.gardenOfGrowth.isPlanted]);
+
   return {
     gameState,
     isLoading,
