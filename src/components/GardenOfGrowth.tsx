@@ -76,7 +76,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
                   <p>• Grows automatically, even when offline</p>
                   <p>• Must keep watered to continue growing</p>
                   <p>• Water costs {garden.waterCost.toLocaleString()} coins per 24 hours</p>
-                  <p>• Maximum growth: {garden.maxGrowthCm}cm (+{garden.maxGrowthCm * 5}% bonus!)</p>
+                  <p>• Grows infinitely with proper care!</p>
                 </div>
               </div>
 
