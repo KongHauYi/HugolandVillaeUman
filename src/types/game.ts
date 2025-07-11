@@ -28,6 +28,7 @@ export interface GameState {
   research: ResearchSystem;
   multipliers: Multipliers;
   merchant: MerchantSystem;
+  eventsSystem: EventsSystem;
 }
 
 export interface PlayerStats {
