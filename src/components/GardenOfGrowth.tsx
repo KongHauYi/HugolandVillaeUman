@@ -142,7 +142,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
               <div className="mt-4">
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-gray-300">Growth Progress</span>
-                  <span className="text-green-400">{((garden.growthCm / garden.maxGrowthCm) * 100).toFixed(1)}%</span>
+                  <span className="text-green-400">{garden.growthCm.toFixed(1)}cm grown</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-3">
                   <div 
