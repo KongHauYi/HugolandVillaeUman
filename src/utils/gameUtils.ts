@@ -88,7 +88,7 @@ export const generateWeapon = (forceChroma = false, forceRarity?: string, forceE
   const upgradeCostMap = { common: 5, rare: 10, epic: 20, legendary: 40, mythical: 50 };
   let baseAtk = baseAtkMap[rarity] + Math.floor(Math.random() * 10);
   
-  const isEnchanted = forceEnchanted || Math.random() < 0.05;
+  const isEnchanted = forceEnchanted || Math.random() < 0.4;
   let enchantmentMultiplier = 1;
   
   if (isEnchanted) {
