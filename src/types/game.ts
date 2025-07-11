@@ -373,3 +373,21 @@ export interface MerchantReward {
   healthMultiplier?: number;
   attackMultiplier?: number;
 }
+
+export interface RandomEvent {
+  id: string;
+  name: string;
+  type: 'planting_season' | 'meteor_shower' | 'mining_frenzy' | 'relics_rundown' | 'market_shutdown' | 'sneaky_merchant' | 'treble';
+  description: string;
+  icon: string;
+  startTime: Date;
+  endTime: Date;
+  isActive: boolean;
+}
+
+export interface EventsSystem {
+  currentEvent: RandomEvent | null;
+  nextEvent: RandomEvent | null;
+  nextEventTime: Date;
+  eventHistory: RandomEvent[];
+}
