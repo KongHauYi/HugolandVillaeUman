@@ -161,8 +161,32 @@ export const Combat: React.FC<CombatProps> = ({
   const handleSkipCard = () => {
     if (onUseSkipCard && adventureSkills?.selectedSkill?.type === 'skip_card' && !adventureSkills.skillEffects.skipCardUsed) {
       onUseSkipCard();
-      // Automatically answer correctly
-      handleAnswer(currentQuestion?.correctAnswer as number);
+      
+      // Automatically answer correctly based on question type
+      switch (currentQuestion?.type) {
+        case 'multiple-choice':
+          handleAnswer(currentQuestion.correctAnswer as number);
+          break;
+        case 'true-false':
+          handleAnswer(currentQuestion.correctAnswer as boolean);
+          break;
+        case 'slider':
+          setSliderValue(currentQuestion.correctAnswer as number);
+          handleAnswer(null); // Slider uses current slider value
+          break;
+        case 'text-input':
+          setTypedAnswer(currentQuestion.correctAnswer as string);
+          handleAnswer(null); // Text input uses typed answer
+          break;
+        case 'reorder-words':
+          setReorderedWords(currentQuestion.correctAnswer as string[]);
+          handleAnswer(null); // Reorder uses current word order
+          break;
+        default:
+          // Fallback - attempt to handle answer as-is
+          handleAnswer(currentQuestion?.correctAnswer);
+          break;
+      }
     }
   };
 
