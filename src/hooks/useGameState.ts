@@ -490,6 +490,15 @@ const useGameState = () => {
           combatLog.push('You heal 10 HP from healing aura!');
         }
         
+        // Power absorption mechanic - when >5 correct answers needed to win
+        if (newCorrectAnswers > 5) {
+          const atkAbsorbed = Math.floor(enemy.atk * 0.1);
+          const defAbsorbed = Math.floor(enemy.def * 0.1);
+          playerStats.atk += atkAbsorbed;
+          playerStats.def += defAbsorbed;
+          combatLog.push(`You absorb ${atkAbsorbed} ATK and ${defAbsorbed} DEF from ${enemy.name}!`);
+        }
+        
         // Update knowledge streak
         newState.knowledgeStreak = {
           ...prev.knowledgeStreak,
