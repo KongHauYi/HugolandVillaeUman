@@ -144,7 +144,7 @@ export const generateArmor = (forceChroma = false, forceRarity?: string, forceEn
   const upgradeCostMap = { common: 5, rare: 10, epic: 20, legendary: 40, mythical: 50 };
   let baseDef = baseDefMap[rarity] + Math.floor(Math.random() * 5);
   
-  const isEnchanted = forceEnchanted || Math.random() < 0.05;
+  const isEnchanted = forceEnchanted || Math.random() < 0.4;
   let enchantmentMultiplier = 1;
   
   if (isEnchanted) {
