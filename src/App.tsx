@@ -463,16 +463,7 @@ function App() {
             />
           </Suspense>
         );
-      case 'gameMode':
-        return (
-          <Suspense fallback={<SuspenseLoader />}>
-            <LazyEnhancedGameModes
-              currentMode={gameState.gameMode}
-              onSelectMode={setGameMode}
-              onClose={() => setCurrentModal(null)}
-            />
-          </Suspense>
-        );
+
       case 'pokyegMarket':
         return (
           <Suspense fallback={<SuspenseLoader />}>
