@@ -147,7 +147,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
                 <div className="w-full bg-gray-700 rounded-full h-3">
                   <div 
                     className="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full transition-all duration-500"
-                    style={{ width: `${Math.min((garden.growthCm / garden.maxGrowthCm) * 100, 100)}%` }}
+                    style={{ width: `${Math.min((garden.growthCm / 100) * 100, 100)}%` }}
                   />
                 </div>
               </div>
