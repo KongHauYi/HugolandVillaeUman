@@ -326,11 +326,11 @@ function App() {
                   <div className="w-full bg-gray-700 rounded-full h-3">
                     <div 
                       className="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full transition-all duration-500"
-                      style={{ width: `${Math.min(((gameState.gardenOfGrowth?.growthCm || 0) / (gameState.gardenOfGrowth?.maxGrowthCm || 100)) * 100, 100)}%` }}
+                      style={{ width: `${Math.min(((gameState.gardenOfGrowth?.growthCm || 0) / 100) * 100, 100)}%` }}
                     />
                   </div>
                   <p className="text-center text-gray-300 text-xs sm:text-sm mt-2">
-                    Progress to maximum growth ({gameState.gardenOfGrowth?.maxGrowthCm || 100}cm)
+                    Progress: {gameState.gardenOfGrowth?.growthCm?.toFixed(1) || 0}cm grown
                   </p>
                 </div>
               </div>
