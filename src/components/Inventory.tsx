@@ -462,7 +462,7 @@ export const Inventory: React.FC<InventoryProps> = ({
             💡 <strong>Features:</strong>
           </p>
           <div className="text-xs text-gray-400 space-y-1">
-            <p>• <strong>Enchanted Items:</strong> 5% chance from chests, double ATK/DEF</p>
+            <p>• <strong>Enchanted Items:</strong> 40% chance from chests, double ATK/DEF</p>
             <p>• <strong>Relics:</strong> Powerful ancient items - equip unlimited relics to absorb their power!</p>
             <p>• <strong>Durability:</strong> Items lose durability in combat and become less effective</p>
           </div>
